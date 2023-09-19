@@ -1,0 +1,68 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    text-align:center;}
+    section {min-height: 80%;}
+    a{text-decoration: none;}
+    li{list-style-type: none;}
+    h4, h1, h2, h3, a{
+     font-family: "Open Sans";
+     font-weight: 900;
+     color: #494949;
+     text-transform: uppercase; 
+    }
+    h1{
+    color: white;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+        -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+    h2{
+     font-family: "Open Sans";
+     text-transform: uppercase;
+     color:white;
+     text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+        -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+    h3{
+     font-size: 30px;
+     padding-top: 5%;
+     margin-bottom: 5px;
+    }
+
+    /***HEADER*********/
+    
+    header{
+     width: 100%;
+     height: 55px;
+     position:fixed;
+     top: 0;
+     left: 0;
+     background: white;
+     box-shadow: 0 5px 3px rgba(0, 0, 0, 0.1)
+     /*z-index: 1;*/
+    }
+    
+    /***Startseite*********/
+    #Startseite{
+    background-image:url('../img/tempel.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    }
+    #Startseite h1 {
+    margin:300px auto 0 auto;
+    font-size: 110px;
+    }
+    #Startseite h2{
+    margin: 20 auto 0 auto;
+    font-size: 25px;
+    }
+    #Startseite img {
+     width: 32px;
+     margin-top: 150px;
+     opacity: 0.7;
+    }
+    #Startseite img:hover {
+    opacity: 1; 
+    }

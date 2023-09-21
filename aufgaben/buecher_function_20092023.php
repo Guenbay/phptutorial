@@ -1,5 +1,5 @@
 Übung 1:
-Erstellen Sie ein assoziatives Array, das Informationen zu Büchern enthält (z. B. Titel, Autor, Erscheinungsjahr). 
+Erstellen Sie ein assoziatives Array, das Informationen zu Büchern enthält (z. B. Titel, Autor). 
 Implementieren Sie Funktionen, um ein Buch hinzuzufügen, ein Buch zu aktualisieren, ein Buch zu löschen und alle Bücher anzuzeigen.
 
 

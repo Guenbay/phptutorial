@@ -1,5 +1,5 @@
 <?php
-//Erstellen ein assoziatives Array, das Informationen zu Studenten enthält 
+//Erstellen eines assoziatives Array, das Informationen zu Studenten enthält 
 //(z. B. Name, Alter, Note). 
 $student1 = array("Name"=>"Ihssas", "Alter"=>"30", "Note"=>"2");
 $student2 = array("Name"=>"Ahssas", "Alter"=>"32", "Note"=>"3");

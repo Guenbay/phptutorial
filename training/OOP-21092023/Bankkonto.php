@@ -28,7 +28,7 @@ public function buchung($betrag, $art)
                 return $this->kontostand;
                 
             }
-            else if ($art == "auszahlung" && $this->kontostand - $betrag <= 0)
+            else /*if ($art == "auszahlung" && $this->kontostand - $betrag <= 0)*/
             {
                 echo "Auszahlung nicht möglich. ";
             }

@@ -1,4 +1,4 @@
-Das ist eine mit PHP programmierte Objektorientierte Programmierung mit dem Thema: Bank
+Das ist eine Objektorientierte Programmierung mit PHP. Das Thema: Bank
 
 Die funktionen sind bekanntlich:
   - Girokonto erstellen

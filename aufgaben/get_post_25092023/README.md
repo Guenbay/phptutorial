@@ -1,3 +1,5 @@
+Aufgabe:
+
 Erstellen Sie eine einfache Registrierungsseite mit einem HTML-Formular,
 das Informationen zur Benutzerregistrierung (z. B. Benutzername, E-Mail, Passwort) sammelt. 
 

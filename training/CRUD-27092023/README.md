@@ -6,3 +6,5 @@ Punkt dieser Session ist es CRUD (Create, Read, Update, Delete) zu verwenden:
 4. Datensätze in Tabellen zu ändern
 5. Datensätze in Tabellen zu löschen
 
+Nicht vergessen XAMPP zu installieren! 
+  -> eine Ordnerstruktur anzulegen in htdocs und sämtliche Daten bereitstellen

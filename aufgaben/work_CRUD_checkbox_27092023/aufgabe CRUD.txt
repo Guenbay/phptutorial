@@ -1,0 +1,30 @@
+1. **Klassen erstellen:**
+   Erstellen Sie zwei PHP-Klassen: `Student` und `Kurs`. 
+   Die `Student`-Klasse sollte Eigenschaften wie Vorname, Nachname und Matrikelnummer haben. 
+   Die `Kurs`-Klasse sollte Eigenschaften wie Kursname und Kurscode haben.
+   
+2. **Datenbank erstellen:**
+   Erstellen Sie eine MySQL-Datenbank mit einer Tabelle, um Informationen über Studenten und Kurse zu speichern.
+   Die Tabelle für Studenten könnte folgendermaßen aussehen:
+   ```sql
+   CREATE TABLE students (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       matriculationNumber INT,
+       firstName VARCHAR(50),
+       lastName VARCHAR(50)
+   );
+   ```
+   Und die Tabelle für Kurse:
+   ```sql
+   CREATE TABLE courses (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       courseCode VARCHAR(10),
+       courseName VARCHAR(100)
+   );
+   ```
+3. **Datenbankzugriff und Objekte kombinieren:**
+   Schreiben Sie PHP-Code, um Verbindungen zur Datenbank herzustellen,
+   Daten aus der Datenbank abzurufen und diese Daten in Instanzen Ihrer Klassen (`Student` und `Course`) zu speichern. 
+   Sie können auch Methoden hinzufügen, um Informationen über Studenten und Kurse anzuzeigen.
+
+Achtet auf den Code den wir vorher erstellt haben und benutzt das als Beispiel.

@@ -11,7 +11,7 @@ if($_POST["save"] == "Senden")
 
         if ($key == "save") continue;
         
-       $res = $conn->query("DELETE FROM studenten WHERE studenten.martnummer =".$key);
+       $res = $conn->query("DELETE FROM studenten WHERE studenten.id =".$key);
 
     }
 }

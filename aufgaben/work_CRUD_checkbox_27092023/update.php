@@ -25,14 +25,10 @@ if ($_POST['send'])
         
         //$update = $conn->query("UPDATE studenten SET martnummer='$martnummer', vorname='$vorname', nachname='$nachname', durchschnitt = '$durchschnitt' WHERE id='$id'");
         //if ($update)
-        //if ($update)
-        //if ($update)
-        //if ($update)
         //{
-        //  //    
         //  
         //    echo "\n !!UPDATE STUDENT COMPLETE!! - Reloading Page in 5 sec.\n ";
-       ////     sleep(5);
+        //     sleep(5);
         //    header('Refresh: 5, url=index.php');
         //}
         //else 

@@ -6,13 +6,13 @@ include('Student.php');
 $conn = createMySQLConnection();
 
 if(isset($_POST["vorname"]))
-  $resStudent = $conn->query("INSERT INTO studenten (nachname, vorname) VALUES ('".$_POST['nachname']."', '".$_POST['vorname']."')");
+    $resStudent= $conn->query("INSERT INTO studenten (id, martnummer, vorname, nachname, durchschnitt) VALUES (NULL, '$_POST[martnummer]', '$_POST[vorname]', '$_POST[nachname]', '$_POST[durchschnitt]')");
 if(isset($_POST["kursname"]))
-  $resKurs = $conn->query("INSERT INTO kurse (id, kurscode, kursname) VALUES (NULL,'".$_POST['kurscode']."', '".$_POST['kursname']."')");
-if(isset($_POST["martnummer"]))
-$studentLoeschen = $conn->query("DELETE FROM studenten WHERE studenten.martnummer =".$_POST["martnummer"]);
+    $resKurs = $conn->query("INSERT INTO kurse (id, kurscode, kursname) VALUES (NULL,'".$_POST['kurscode']."', '".$_POST['kursname']."')");
 if(isset($_POST["id"]))
-$kursLoeschen = $conn->query("DELETE FROM kurse WHERE kurse.id =".$_POST["id"]);
+    $studentLoeschen = $conn->query("DELETE FROM studenten WHERE studenten.id =".$_POST["id"]);
+if(isset($_POST["id"]))
+    $kursLoeschen = $conn->query("DELETE FROM kurse WHERE kurse.id =".$_POST["id"]);
 
 $vorhandeneStudenten = $conn->query("SELECT * FROM studenten");
 $vorhandeneKurse = $conn->query("SELECT * FROM kurse");
@@ -27,8 +27,10 @@ $vorhandeneKurse = $conn->query("SELECT * FROM kurse");
             <div>
                 <h1>Studenten Anlegen</h1>
                 <form action="index.php" method="POST">
-                    <input type="text" placeholder="Nachname" name="nachname"/>
-                    <input type="text" placeholder="Vorname" name="vorname"/>
+                    <input type="text" placeholder="Martikelnummer" name="martnummer"/>
+                    <input type="text" placeholder="Nachname" name="vorname"/>
+                    <input type="text" placeholder="Vorname" name="nachname"/>
+                    <input type="text" placeholder="Durschnittsnote" name="durchschnitt"/>
                     <input type="submit" value="Student Eintragen"/>
                 </form>
             </div>
@@ -38,7 +40,7 @@ $vorhandeneKurse = $conn->query("SELECT * FROM kurse");
                     <?php 
                         while ($row = $vorhandeneStudenten->fetch_assoc())
                         {
-                            echo "<li>".$row["martnummer"]."-".$row["nachname"]."-".$row["vorname"]."</li>";
+                            echo "<li>".$row["id"]." | ".$row["martnummer"]."-".$row["vorname"]."-".$row["nachname"]."-".$row['durchschnitt']."</li>";
                         }
                     ?>
                 </ul>
@@ -72,8 +74,8 @@ $vorhandeneKurse = $conn->query("SELECT * FROM kurse");
                 <div>
                     <h1>Studenten Löschen</h1>
                     <form action="index.php" method="POST" style="text-align: center">
-                        <input type="text" placeholder="geben sie eine id an" name="martnummer"/>
-                        <input type="submit" value="Löschen" name=studenten.martnummer/>
+                        <input type="text" placeholder="geben sie eine id an" name="id"/>
+                        <input type="submit" value="Löschen" name=studenten.id/>
                     </form>
                 </div>
             </div>

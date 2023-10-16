@@ -1,18 +1,21 @@
 <?php
 
 include('function.php');
-include('Mysql.php');
 
-$conn = new Mysql();
-
+$conn = createMySQLConnection();
 
 
 if($_POST["save"] == "Senden")
 {
-    $conn->delete($res);
-    header("Location: index.php");
+    foreach ($_POST as $key => $value) {
+
+        if ($key == "save") continue;
+        
+       $res = $conn->query("DELETE FROM studenten WHERE studenten.id =".$key);
+
+    }
 }
 
 
-
+header("Location: index.php");
 

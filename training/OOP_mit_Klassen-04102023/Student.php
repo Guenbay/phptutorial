@@ -1,13 +1,11 @@
 <?php
 
-class Student extends Kurs
+class Student
 {
 
     public $vorname;
     public $nachname;
     public $martnr;
-    public $noten;
-    private $durchschnitt; 
 
     //function __construct($nachname, $vorname, $martnr)
     //{
@@ -33,26 +31,11 @@ class Student extends Kurs
         $this->martnr = $martnr;
     }
 
-    /* -- PSEUDO CODE für Aufgabe 3 06.10.2023 mit Lina und Ziko
-    private function noten($noten, $fach)
-    {
-        if ($fach == "Web")
-        {
-            $this->noten = $noten;
-        }
+    //public function createStudent($res, $art)
+    //{
+    //    $this->create($res, "Kurs Eintragen");
+    //}
 
-        if ($fach == "App")
-        {
-            $this->note = $noten;
-        }
-        
-    }
-
-    public function durchschnitt($id, $noten, $durchschnitt)
-    {
-        //addiere alle noten($noten) eines Studenten($id) zusammen und 'teile sie durch anzahl der fächer = $durchschnitt'
-    }
-    //PSEUDO CODE ----ENDE--- */
 }
 
 ?>

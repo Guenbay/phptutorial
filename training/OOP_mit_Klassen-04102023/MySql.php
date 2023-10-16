@@ -46,6 +46,12 @@ class Mysql
             return $resKurs;
         }
         
+        if ($art == "fach")
+        {
+            if(isset($_POST["kurscode"]))
+            $resFach = $this->conn->query($res);
+            return $resFach;
+        }
     }
 
     public function update ()

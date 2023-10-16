@@ -13,7 +13,11 @@ if(isset($_POST["vorname"]))
 
 if(isset($_POST["kursname"]))
     $resKurs = $conn->create("INSERT INTO kurse (id, kurscode, kursname) VALUES (NULL, '$_POST[kurscode]', '$_POST[kursname]')", "kurs");
+
+if(isset($_POST["kurscode"]))
+    $resFach = $conn->create("INSERT INTO faecher (id, kurscode, kursname, kursbeschreibung) VALUES (NULL, '$_POST[kurscode]', '$_POST[kursname]', '$_POST[kursbeschreibung]')", "fach");
                             
+
 //Prüfung schreiben WENN ID-Eingabe nicht in der Tabelle existiert, dann echo "ID existiert nicht."
 if(isset($_POST["id"]))
     $studentLoeschen = $conn->delete("DELETE FROM studenten WHERE studenten.id =".$_POST["id"]);   
@@ -117,6 +121,18 @@ $vorhandeneStudenten = $conn->read("SELECT * FROM studenten");
                     <input type="text" placeholder="Kurs-Code" name="kurscode"/>
                     <input type="text" placeholder="Kursname" name="kursname"/>
                     <input type="submit" value="Kurs Eintragen"/>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <h1>Fach Anlegen</h1>
+                <form action="index.php" method="POST">
+                    <input type="text" placeholder="Kurs-Code" name="kurscode"/>
+                    <input type="text" placeholder="Kursname" name="kursname"/>
+                    <input type="text" placeholder="Beschreibung" name="kursbeschreibung"/>
+                    <input type="submit" value="Fach Eintragen"/>
                 </form>
             </div>
         </div>

@@ -52,12 +52,25 @@ class Mysql
             $resFach = $this->conn->query($res);
             return $resFach;
         }
+
+        if ($art == "note")
+        {
+            if(isset($_POST["note"]))
+            $resNote = $this->conn->query($res);
+            return $resNote;
+        }
     }
 
-    public function update ()
+    public function update ($res)
     {
         //bearbeiten
+        if (isset($_POST['id']) && $_POST['send'])
+        {
+            $update = $this->conn->query($res);
+            return $update;
+        }
     }
+    
 
     public function delete($del)
     {
@@ -69,5 +82,23 @@ class Mysql
         
     }
 
+
+    //public function durchschnitt($sql)
+    //{
+    //    //durchschnitt berechnen
+    //    //Noten durch anzahl der Fächer
+    //    $noten = $this->conn->query($sql);
+    //    
+    //    return $noten;
+    //    
+    //}
+
+    function average($a, $b) 
+    {
+
+        $summe = $a / $b; 
+        return $summe;
+    } 
+    
 
 }

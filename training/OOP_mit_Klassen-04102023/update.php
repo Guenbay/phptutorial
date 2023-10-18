@@ -1,11 +1,13 @@
 <?php
 
-include('function.php');
+//include('function.php');
+include('MySql.php');
 
 "\n".var_dump($_GET)."\n";
 
 //Verbindung zu bereits vorhandenen Kunden
-$conn = createMySQLConnection();
+//$conn = createMySQLConnection();
+$conn = new MySql();
 //$data = getIdUrl();
 
 
@@ -19,7 +21,7 @@ if (isset($_POST['id']) && $_POST['send'])
         $nachname = $_POST['nachname'];
         $durchschnitt = $_POST['durchschnitt'];
 
-        $conn->query("UPDATE studenten SET martnummer='$martnummer', vorname='$vorname', nachname='$nachname', durchschnitt = '$durchschnitt' WHERE id='$id'");
+        $conn->update("UPDATE studenten SET martnummer='$martnummer', vorname='$vorname', nachname='$nachname', durchschnitt = '$durchschnitt' WHERE id='$id'");
         header('Location: index.php');
     }
 }
@@ -31,7 +33,7 @@ $id = $_GET['id'];
 if (isset($id))
 {
     
-    $res = $conn->query("SELECT * FROM studenten WHERE id=".$id);
+    $res = $conn->read("SELECT * FROM studenten WHERE id=".$id);
 
     if(!$data = $res->fetch_assoc())
     {

@@ -7,6 +7,8 @@ class Student
     public $nachname;
     public $martnr;
 
+    public $durchschnitt;
+
     //function __construct($nachname, $vorname, $martnr)
     //{
     //    $this->name = "Student";
@@ -30,12 +32,13 @@ class Student
     {
         $this->martnr = $martnr;
     }
+    
+    public function durschnitt($durchschnitt)
+    {
+        
+        $this->durschnitt = $durchschnitt;
 
-    //public function createStudent($res, $art)
-    //{
-    //    $this->create($res, "Kurs Eintragen");
-    //}
-
+    }
 }
 
 ?>

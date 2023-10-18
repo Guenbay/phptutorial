@@ -1,5 +1,4 @@
 <?php
-include('function.php');
 include('Kurs.php');
 include('Student.php');
 include('MySql.php');
@@ -17,7 +16,9 @@ if(isset($_POST["kursname"]))
 if(isset($_POST["kurscode"]))
     $resFach = $conn->create("INSERT INTO faecher (id, kurscode, kursname, kursbeschreibung) VALUES (NULL, '$_POST[kurscode]', '$_POST[kursname]', '$_POST[kursbeschreibung]')", "fach");
                             
-
+if(isset($_POST["note"]))
+    $resNote = $conn->create("INSERT INTO notenbuch (id, kurscode, martnummer, note) VALUES (NULL, '$_POST[kurscode_note]', '$_POST[martnummer_note]', '$_POST[note]')", "note");
+                           
 //Prüfung schreiben WENN ID-Eingabe nicht in der Tabelle existiert, dann echo "ID existiert nicht."
 if(isset($_POST["id"]))
     $studentLoeschen = $conn->delete("DELETE FROM studenten WHERE studenten.id =".$_POST["id"]);   
@@ -26,12 +27,19 @@ if(isset($_POST["id"]))
 if(isset($_POST["id"]))
     $kursLoeschen = $conn->delete("DELETE FROM kurse WHERE kurse.id =".$_POST["id"]);
 
+
 $vorhandeneStudenten = $conn->read("SELECT * FROM studenten");
 
 
 //$zeigeStudenten = $vorhandeneStudenten->fetch_assoc();
 //$vorhandeneKurse = $conn->read("SELECT * FROM kurse");
 
+//DURCHSCHNITT --- BEGIN --
+$notenDurchschnitt = $conn->read("SELECT note FROM notenbuch");
+$avg = $notenDurchschnitt->fetch_assoc();
+$durchschnitt = $conn->average(abs($avg['note']), count($avg)); 
+echo "Durchschnitt: ".$durchschnitt."\n";
+//DURCHSCHNITT --ENDE--
 ?>
 
 <html>
@@ -58,7 +66,6 @@ $vorhandeneStudenten = $conn->read("SELECT * FROM studenten");
             {
                 echo "<tr>";
                     echo "<td><input type=\"checkbox\" name=\"". $row['id']. "\" /></td>";
-                    
                     echo "<td>".$row['id']."</td>";
                     echo "<td>".$row['martnummer']."</td>";
                     echo "<td>".$row['vorname']."</td>";
@@ -74,7 +81,7 @@ $vorhandeneStudenten = $conn->read("SELECT * FROM studenten");
         <!--  <input type="submit" value="Bearbeiten" name="change" --Update --> 
         </form>
         
-        <!--Anzeige der Tabelle KURSE BEGIN--
+    <!--Anzeige der Tabelle KURSE BEGIN--
         <form action="delete.php" method="post">
         <table border ="1">
             <tr>
@@ -88,7 +95,6 @@ $vorhandeneStudenten = $conn->read("SELECT * FROM studenten");
         //    {
         //        echo "<tr>";
         //            echo "<td><input type=\"checkbox\" name=\"".$row['id']. "\" /><td>";
-//
         //            echo "<td>".$row['id']."</td>";
         //            echo "<td>".$row['kursname']."</td>";
         //            echo "<td>".$row['kurscode']."</td>";
@@ -99,7 +105,7 @@ $vorhandeneStudenten = $conn->read("SELECT * FROM studenten");
         </table>
         <input type="submit" name="save" /> -----DELETE-----
         </form> 
-        --KURSE ENDE-->
+    --KURSE ENDE-->
 
         <div>
             <div>
@@ -137,6 +143,18 @@ $vorhandeneStudenten = $conn->read("SELECT * FROM studenten");
             </div>
         </div>
 
+        <div>
+            <div>
+                <h1>Noten Anlegen</h1>
+                <form action="index.php" method="POST">
+                    <input type="text" placeholder="Kurs-Code" name="kurscode_note"/>
+                    <input type="text" placeholder="Martikelnummer" name="martnummer_note"/>
+                    <input type="text" placeholder="Note" name="note"/>
+                    <input type="submit" value="Fach Eintragen"/>
+                </form>
+            </div>
+        </div>
+
         <div id="fixed_container" style="background-color: beige; border-color: black; border-radius: 10%; position: fixed; right: 10%; top: 20%; width 8rem; margin-top: 2.5em">
             <div id="studenten">
                 <div>
@@ -147,6 +165,7 @@ $vorhandeneStudenten = $conn->read("SELECT * FROM studenten");
                     </form>
                 </div>
             </div>
+
             <div id="kurse">
                 <div>
                     <h1>Kurs Löschen</h1>

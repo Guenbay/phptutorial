@@ -1,9 +1,9 @@
 <?php
 
-include('function.php');
+include('MySql.php');
 
-$conn = createMySQLConnection();
-
+//$conn = createMySQLConnection();
+$conn = new Mysql();
 
 if($_POST["save"] == "Senden")
 {
@@ -11,11 +11,10 @@ if($_POST["save"] == "Senden")
 
         if ($key == "save") continue;
         
-       $res = $conn->query("DELETE FROM studenten WHERE studenten.id =".$key);
+       $res = $conn->delete("DELETE FROM studenten WHERE studenten.id =".$key);
 
     }
 }
-
 
 header("Location: index.php");
 

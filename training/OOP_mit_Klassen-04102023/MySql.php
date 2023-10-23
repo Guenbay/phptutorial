@@ -75,11 +75,18 @@ class Mysql
     public function delete($del)
     {
         //löschen
-        if(isset($_POST["id"]))
+        if(isset($_POST["save"]))
+        {
             //$studentLoeschen = $this->conn->query("DELETE FROM studenten WHERE studenten.id =".$_POST["id"]);
             $studentLoeschen = $this->conn->query($del);
             return $studentLoeschen;
+        }
         
+        if(isset($_POST["id"]))
+        {
+            $studentLoeschen = $this->conn->query($del);
+            return $studentLoeschen;
+        }
     }
 
 
